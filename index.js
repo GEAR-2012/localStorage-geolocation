@@ -5,7 +5,6 @@
 */
 $(document).ready(function () {
   // LOCALSTORAGE
-  console.log(localStorage.length);
 
   if (localStorage.length > 0) {
     let firstName = "";
@@ -53,9 +52,15 @@ $(document).ready(function () {
   });
 
   // GEOLOCATION
-  if ("geolocation" in navigator) {
-    // do something
+
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
   } else {
-    alert("Your browser do not support geolocation API.");
+    $("#geo-loc").html("Geolocation is not supported by this browser.");
+  }
+
+  function showPosition(position) {
+    $("#geo-loc").html(`<p>Latitude: ${position.coords.latitude}</p>
+                        <p>Longitude: ${position.coords.longitude}</p>`);
   }
 });
