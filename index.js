@@ -6,10 +6,7 @@
 $(document).ready(function () {
   // LOCALSTORAGE
 
-  if (
-    localStorage.getItem("first-name").length > 0 &&
-    localStorage.getItem("last-name").length > 0
-  ) {
+  if (localStorage.getItem("first-name") && localStorage.getItem("last-name")) {
     alert(
       "Welcome on this site " +
         localStorage.getItem("first-name") +
