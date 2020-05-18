@@ -6,14 +6,27 @@
 $(document).ready(function () {
   // LOCALSTORAGE
 
-  if (localStorage.getItem("first-name") && localStorage.getItem("last-name")) {
-    alert(
-      "Welcome on this site " +
-        localStorage.getItem("first-name") +
-        " " +
-        localStorage.getItem("last-name") +
-        " again."
-    );
+  if (localStorage.length > 0) {
+    let firstName = "";
+    let lastName = "";
+    let fullName = "";
+
+    if (localStorage.getItem("first-name") != null) {
+      firstName = localStorage.getItem("first-name");
+      fullName += firstName;
+    }
+
+    if (localStorage.getItem("last-name") != null) {
+      lastName = localStorage.getItem("last-name");
+      if (firstName.length > 0) {
+        fullName += " ";
+        fullName += lastName;
+      } else {
+        fullName += lastName;
+      }
+    }
+
+    alert("Welcome on this site " + fullName + " again.");
   } else {
     alert("Welcome on this site Adventurer.");
   }
