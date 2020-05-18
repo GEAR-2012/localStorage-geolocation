@@ -5,6 +5,7 @@
 */
 $(document).ready(function () {
   // LOCALSTORAGE
+  console.log(localStorage.length);
 
   if (localStorage.length > 0) {
     let firstName = "";
